@@ -3,6 +3,7 @@ import 'package:task1/task1.dart';
 import 'task2.dart';
 import 'task3.dart';
 import 'task4.dart';
+import 'task5.dart';
 
 void main() {
   // Task 1: Create a Basic Class
@@ -40,4 +41,21 @@ void main() {
 
   print('User JSON: ${user.toJson()}');
   print('Product JSON: ${product.toJson()}');
+
+
+  //Task 5: Implement Exception Handling
+
+  BankAccount account = BankAccount(100.0);
+
+  try {
+    account.deposit(50.0);
+    account.withdraw(30.0);
+    account.withdraw(150.0); // This will throw an exception
+  } catch (e) {
+    if (e is OverdrawException) {
+      print(e.errorMessage());
+    } else {
+      print('An unknown error occurred.');
+    }
+  }
 }
